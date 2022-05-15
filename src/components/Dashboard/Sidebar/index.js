@@ -40,7 +40,7 @@ const Sidebar = ({ history, match }) => {
    };
 
    return (
-      <aside id="sidebar" className="b-6 -ml-[100%] fixed z-10 top-0 pb-3 w-full flex flex-col justify-between h-screen transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+      <aside id="sidebar" className="b-6 overflow-y-scroll -ml-[100%] fixed z-10 top-0 pb-3 w-full flex flex-col justify-between h-screen transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
          <div>
             <Link to={'/'} className="flex flex-col items-center mt-12 mb-10">
                <div className="flex justify-center items-center rounded-full relative cursor-pointer transition-all duration-150 delay-100 hover:animate-pulse">
