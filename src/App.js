@@ -22,11 +22,8 @@ import Transactions from './pages/Transactions.js';
 import Settings from './pages/Settings';
 import Dashboard from './pages/Dashboard';
 
-import Admin from './pages/Admin';
-
 import './index.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import Media from './pages/Admin/Media';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,8 +52,6 @@ const App = () => {
           <MemberRoute path="/courses/playing/:class/" component={DetailClass} />
           <MemberRoute path="/transactions" component={Transactions} />
           <MemberRoute path="/settings" component={Settings} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/admin/:media" component={Media} />
           <Route path="/*" component={Custom404} />
         </Switch>
       </Router>
