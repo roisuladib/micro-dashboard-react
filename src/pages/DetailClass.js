@@ -97,6 +97,4 @@ const DetailClass = ({ match, history }) => {
    );
 };
 
-DetailClass.propTypes = {};
-
 export default DetailClass;

@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 
 const Centered = ({ children }) => {
    return (
@@ -10,7 +9,5 @@ const Centered = ({ children }) => {
       </section>
    );
 };
-
-Centered.propTypes = {}
 
 export default Centered;

@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ReactComponent as IconPlay } from '../../../assets/images/ic-play.svg';
 
@@ -22,9 +21,5 @@ const ListClassItem = ({ data }) => {
       </div>
   );
 };
-
-ListClassItem.propTypes = {
-
-}
 
 export default ListClassItem;

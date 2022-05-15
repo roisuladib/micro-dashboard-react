@@ -22,10 +22,10 @@ const Joined = ({ history, match }) => {
 
    const joining = () => {
       apiCourse.join(idClass)
-         .then(() => history.push(`/courses/${idClass}`))
+         .then(() => history.push(`/courses/playing/${idClass}`))
          .catch(err => {
             if (err?.response?.status === 409) {
-               history.push(`/courses/${idClass}`);
+               history.push(`/courses/playing/${idClass}`);
             }
          })
    }
