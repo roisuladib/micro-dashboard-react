@@ -1,13 +1,253 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   .link-wrapper::before {
+      @apply absolute cursor-pointer z-10 inset-0;
+      content: '';
+   }
+
+   .header-clip {
+      @apply relative h-[648px];
+   }
+   .header-clip .container { 
+      @apply relative z-[3];
+   }
+   .header-clip .sunshine {
+      @apply absolute top-0 left-1/2 -translate-x-1/2 w-[515px] h-[90%] opacity-80 bg-transparent;
+      clip-path: polygon(46% 0%, 82% 0%, 67% 100%, 0% 100%);
+      background: linear-gradient(146.62deg, #3D47BD 17.72%, #2E37A4 56.8%)
+   }
+   .header-clip::before { 
+      @apply w-full bg-[#2E37A4] inset-0 absolute h-[648px];
+      content: '';
+      clip-path: polygon(0% 0%, 100% 0%, 100% 86%, 0% 100%);
+   }
+   .item-nav {
+      @apply font-normal text-white tracking-tight block cursor-pointer p-2 hover:text-[#36C2CF] transition-colors duration-300;
+   }
+   .item-nav-active {
+      @apply font-medium;
+   }
+
+   /* Card Course */
+   .courses-card .thumb-card .ic-play {
+      @apply fill-[#FE721C] absolute w-[46px] h-[46px] top-1/2 left-1/2 origin-bottom opacity-0 transition-all duration-300;
+      transfrom: translateX(-50%) translateY(-50%) rotateX(-50deg);
+   }
+   .courses-card:hover .thumb-card .ic-play {
+      @apply opacity-100 transform -translate-x-1/2 -translate-y-1/2 rotate-0;
+   }
+   .courses-card .thumb-card::before {
+      @apply absolute inset-0 bg-[#2E37A4] opacity-0 transition-all duration-200 rounded-t-xl;
+      content: '';
+   }
+   .courses-card:hover .thumb-card::before {
+      @apply opacity-[0.71];
+   }
+   .courses-card figure.thumb-card {
+      @apply relative;
+      perspective: 10000px;
+   }
+   /* End Card Course */
+
+   .category-card:hover svg path {
+      @apply fill-white;
+   }
+   .category-card:hover h4 {
+      @apply text-white;
+   }
+   .category-card:hover p {
+      @apply c-8;
+   }
+   .category-card svg:hover {
+      @apply fill-white;
+   }
+
+   /* detail */
+   .youtube-wrapper {
+      @apply absolute inset-0 z-0 pb-[56.25%] h-0;
+   }
+   .youtube-wrapper iframe {
+      @apply absolute top-0 left-0 w-full h-full;
+   }
+   .checkout-meta {
+      transition: all ease-in-out .45s;
+      box-shadow: 0px -8px 5px rgba(0, 0 ,0, 0.05);
+      @apply fixed bottom-0;
+   }
+   .checkout-meta-enter {
+      @apply opacity-0 -bottom-full;
+   }
+   .checkout-meta-enter-active {
+      @apply opacity-100 bottom-0;
+   }
+   .checkout-meta-exit {
+      @apply opacity-100 bottom-0;
+   }
+   .checkout-meta-exit-active {
+      @apply opacity-0 -bottom-full;
+   }
+   .checkout-meta-enter-done {
+      @apply bottom-0 opacity-100 fixed;
+   }
+
+    /* modal */
+    .modal-close {
+      @apply absolute right-0 sm:-right-12 -top-12 cursor-pointer inline-block w-[30px] h-[30px] bg-[#36C2CF] hover:bg-[#2b929c] rounded-xl;
+    }
+    .modal-close::after,
+    .modal-close::before {
+      @apply absolute top-1/2 left-1/2 w-[15px] h-[2px] content-[''] bg-white ml-[-25%] rounded-xl;
+    }
+    .modal-close::before {
+      @apply transform rotate-45;
+    }
+    .modal-close::after {
+      @apply transform -rotate-45;
+    }
+    .overlay {
+      @apply transition-all duration-500;
+    }
+    .overlay-enter {
+      @apply opacity-0;
+    }
+    .overlay-enter-active {
+      @apply opacity-50;
+    }
+    .overlay-enter-done {
+      @apply opacity-100;
+    }
+    .overlay-exit {
+      @apply opacity-100;
+    }
+    .overlay-exit-active {
+      @apply opacity-50;
+    }
+    .overlay-exit-done {
+      @apply opacity-0;
+    }
+
+    /* Accordion */
+    .accordion-item {
+       @apply transition-all duration-300;
+    }
+    .accordion-item-enter {
+       @apply opacity-0;
+    }
+    .accordion-item-enter-active {
+       @apply opacity-100;
+    }
+    .accordion-item-exit {
+       @apply opacity-100;
+    }
+    .accordion-item-exit-active {
+       @apply opacity-0;
+    }
+
+    /* Star */
+    #svg-star {
+       @apply absolute w-0 h-0 -left-[9999px] -top-[9999px];
+    }
+
+    .stars {
+       @apply relative inline-flex;
+    }
+    .stars .star {
+       @apply absolute;
+       clip-path: url(#star);
+       /* mask: url(../../public/images/ic-start.svg) no-repeat center left; */
+    }
+    .stars .star:not(.placeholder) {
+       @apply z-[2] b-4;
+    }
+    .stars .star.placeholder {
+       @apply z-[1] bg-gray-200;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      box-shadow: 10px 0 10px -10px rgba(145, 144, 144, 0.75);
+    }
+    #sidebar ul li span svg path {
+      stroke: #7176B8;
+    }
+    #sidebar ul li:hover span svg path {
+      stroke: #fff;
+      @apply transition-all duration-300;
+    }
+    #sidebar button span svg path {
+      stroke: #7176B8;
+    }
+    #sidebar button:hover span svg path {
+      stroke: #fff;
+      @apply transition-all duration-300;
+    }
+
+    
+    iframe {
+      @apply rounded-2xl;
+    }
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+   .my-filter {
+      filter: drop-shadow(0px 6px 15px rgba(77, 85, 188, 0.4));
+   }
+   .c-1 {
+      color: #2E37A4
+   }
+   .c-2 {
+      color: #4D55BC;
+   }
+   .c-3 {
+      color: #36C2CF;
+   }
+   .c-4 {
+      color: #7186A0;
+   }
+   .c-5 {
+      color: #132B50;
+   }
+   .c-6 {
+      color: #53589D;
+   }
+   .c-7 {
+      color: #FE721C;
+   }
+   .c-8 {
+      color: #9EA3EE;
+   }
+   .c-9 {
+      color: #7176B8;
+   }
+
+   .b-1 {
+      background: #161A4F;
+   }
+   .b-2 {
+      background: #4D55BC;
+   }
+   .b-3 {
+      background: #FE721C;
+   }
+   .b-4 {
+      background: #FFD911;
+   }
+   .b-5 {
+      background: #F6F6F6;
+   }
+   .b-6 {
+      background: #161A4F;
+   }
+   .b-7 {
+      background: #2E37A4;
+   }
+   .b-8 {
+      background: #36C2CF;
+   }
 }
