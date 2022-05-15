@@ -13,7 +13,7 @@ import handlerUsers from '../constans/api/users';
 const FormRegister = ({ history }) => {
    const [error, setError] = useState('');
    const ERRORS = fieldError(error);
-   const [{ name, email, password, profession, otherProfession }, setState, newValue] = useForm({
+   const [{ name, email, password, profession, otherProfession }, setState] = useForm({
       name: '',
       email: '',
       password: '',

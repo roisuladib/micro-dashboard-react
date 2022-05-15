@@ -7,7 +7,7 @@ const Custom404 = () => {
     setTimeout(() => {
       router.push('/login');
     }, 3000);
-  }, []);
+  }, [router]);
 
   return (
     <section className="h-screen flex flex-col justify-items-stretch text-center px-4 py-20 items-center bg-white">

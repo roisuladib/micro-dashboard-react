@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { ReactComponent as IconBack } from '../../../assets/images/ic-arrow-back.svg';
 
 const SidebarClass = ({ match, data, defaultUri }) => {
    const getNavlinkClass = path => match.url === path || defaultUri === path ? 'text-white b-7 border-r-8 border-r-[#36C2CF] active' : 'c-9 font-medium';
    const list = [];
-   data.chapters.map((chapter, index) => {
+   data.chapters.forEach((chapter, index) => {
       list.push(<li key={`${chapter.courses_id}-${index}`}>
          <span className="nav-header relative block font-semibold text-lg px-6 py-4 c-3 text-white text-left">
             {chapter.name ?? 'Chapter Name'}
          </span>
       </li>);
       if (chapter.lessons.length >= 1) {
-         chapter.lessons.map((lesson, index2) => {
+         chapter.lessons.forEach((lesson, index2) => {
             list.push(<li key={`${chapter.courses_id}-${lesson.id}-${index2}`} className="relative flex">
                <Link
                   id="coba"

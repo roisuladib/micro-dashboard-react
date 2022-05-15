@@ -13,8 +13,7 @@ import { setAuthorizationHeader } from '../configs/axios';
 
 const FormLogin = ({ history }) => {
    const dispath = useDispatch();
-   const USER = useSelector(state => state.users);
-   const [{ email, password }, setState, newValue] = useForm({
+   const [{ email, password }, setState] = useForm({
       email: '',
       password: ''
    });
