@@ -2,5 +2,5 @@
 import axios from "../../configs/axios";
 
 export default {
-  orders: () => axios.get('/orders').then(res => res.data),
+  orders: (options = { params: {} }) => axios.get('/orders', options)
 }

@@ -4,12 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+   background: #f9fafb;
+}
+
 @layer components {
    .link-wrapper::before {
       @apply absolute cursor-pointer z-10 inset-0;
       content: '';
    }
-
    .header-clip {
       @apply relative h-[648px];
    }
@@ -51,6 +54,12 @@
    .courses-card figure.thumb-card {
       @apply relative;
       perspective: 10000px;
+   }
+   .courses-card .meta-card h4 {
+      @apply truncate;
+   }
+   .courses-card:hover .meta-card h4 {
+      @apply overflow-visible text-clip whitespace-normal;
    }
    /* End Card Course */
 

@@ -41,7 +41,7 @@ const Content = ({ title, subTitle, children }) => {
                </div>
             </div>
          </div>
-         <div className="px-4 md:px-10 pt-10 2xl:container">
+         <div className="px-4 md:px-6 pt-10 2xl:container">
             <div className="flex flex-col">
                <h1 className="text-4xl c-5 font-medium">
                   {title}

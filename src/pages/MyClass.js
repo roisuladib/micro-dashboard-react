@@ -22,8 +22,8 @@ const MyClass = () => {
     <>
       <Sidebar />
       <Content 
-        title="My Class" 
-        subTitle="Continue learning to pursue your dreams"
+        title={COURSES.status === 'ok' && (COURSES.total > 0 ? 'My Class' : '')} 
+        subTitle={COURSES.status === 'ok' && (COURSES.total > 0 ? 'Continue learning to pursue your dreams' : '')} 
       >
         {COURSES.status === 'loading' && <Loading />}
         {COURSES.status === 'error' && COURSES.message}
@@ -31,7 +31,7 @@ const MyClass = () => {
           COURSES.status === 'ok' 
           && (COURSES.total > 0 
           ? <>
-              <div className="grid gap-2 grid-cols-1 md:grid-cols-3 xl:grid-cols-4 mt-5">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-5">
                 {
                   Object.values(COURSES.data)?.map((item, index) => {
                     return <ListClassItem key={index} data={item.course}></ListClassItem>

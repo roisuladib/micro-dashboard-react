@@ -70,7 +70,7 @@ const Sidebar = ({ history, match }) => {
                   }
                </span>
             </Link>
-            <ul className="space-y-2 tracking-wide">
+            <ul className="tracking-wide">
                <li>
                   <Link className={["flex flex-row items-center px-6 py-4 hover:text-white transition-all duration-300", getNavlinkClass('/')].join(' ')} to="/">
                      <span className="h-6 w-6 items-center justify-center">
