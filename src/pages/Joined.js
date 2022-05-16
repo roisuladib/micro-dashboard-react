@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import apiCourse from '../constans/api/courses';
 import ServerError from '../pages/500';
-import { Loading } from '../components/Loading';
+import { LoadingCard } from '../components/Loading';
 
 const Joined = ({ match }) => {
    const [state, setState] = useState(() => ({
@@ -32,7 +32,7 @@ const Joined = ({ match }) => {
       joining();
    }, [joining])
 
-   if (state.isLoading) return <Loading />;
+   if (state.isLoading) return <LoadingCard />;
    if (state.isError) return <ServerError />;
 
    return (

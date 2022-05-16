@@ -8,7 +8,7 @@ import apiOrders from '../constans/api/orders';
 import Sidebar from '../components/Dashboard/Sidebar';
 import Content from '../components/Dashboard/Content';
 import Congrulation from '../components/Dashboard/Content/Congrulation.js';
-import { Loading } from '../components/Loading';
+import { LoadingTitleNCard } from '../components/Loading';
 
 import NumberFormat from '../helpers/NumberFormat';
 import DateFormat from '../helpers/DateFormat';
@@ -41,13 +41,13 @@ const Transactions = () => {
          <Sidebar />
          <Content title="Transactions" subTitle="Keep on track what you’ve invested">
             <div className="flex flex-col mt-5">
-               {ORDERS.status === 'loading' && <Loading />}
+               {ORDERS.status === 'loading' && <LoadingTitleNCard />}
                {ORDERS.status === 'error' && ORDERS?.message}
                {ORDERS.status === 'ok' && 
-                  params.order_id 
-                     ? <Congrulation data={ORDERS.data[params.order_id]} /> 
+                  (params.order_id 
+                     ? (<Congrulation data={ORDERS.data[params.order_id]} />)
                      : ORDERS.total > 0 ? 
-                     <div className="overflow-x-auto">
+                     (<div className="overflow-x-auto">
                         <table className="table-auto w-full mb-1">
                            <tbody>
                               {
@@ -84,7 +84,9 @@ const Transactions = () => {
                               }
                            </tbody>
                         </table>
-                     </div> : <MyClassEmpty />
+                     </div>) 
+                  : (<MyClassEmpty />)
+                  )
                }
             </div>
          </Content>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { statusCourses, watchCourse, messageCourses } from '../store/Actions/courses';
 import SidebarClass from '../components/Dashboard/Sidebar/SidebarClass.js';
 import apiCourses from '../constans/api/courses';
-import { Loading } from '../components/Loading';
+import { LoadingCard } from '../components/Loading';
 import Centered from '../components/Centered';
 
 const DetailClass = ({ match, history }) => {
@@ -27,7 +27,7 @@ const DetailClass = ({ match, history }) => {
          })
    }, [idClass, dispatch]);
 
-   if (COURSES.status === 'loading') return <Loading />;
+   if (COURSES.status === 'loading') return <LoadingCard />;
    if (COURSES.status === 'error') return <Centered><h1 className="text-4xl">{COURSES?.message ?? 'Error here...'}</h1></Centered>;
 
    let currentChapter, currentLesson;

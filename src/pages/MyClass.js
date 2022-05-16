@@ -4,7 +4,7 @@ import Sidebar from '../components/Dashboard/Sidebar';
 import Content from '../components/Dashboard/Content'; 
 import MyClassEmpty from '../components/Dashboard/Content/MyClassEmpty';
 import ListClassItem from '../components/Dashboard/Content/ListClassItem';
-import { Loading } from '../components/Loading';
+import { LoadingTitleNCard } from '../components/Loading';
 
 import handlerCourses from '../constans/api/courses';
 import { statusCourses, fetchCourses, messageCourses } from '../store/Actions/courses';
@@ -25,7 +25,7 @@ const MyClass = () => {
         title={COURSES.status === 'ok' && (COURSES.total > 0 ? 'My Class' : '')} 
         subTitle={COURSES.status === 'ok' && (COURSES.total > 0 ? 'Continue learning to pursue your dreams' : '')} 
       >
-        {COURSES.status === 'loading' && <Loading />}
+        {COURSES.status === 'loading' && <LoadingTitleNCard />}
         {COURSES.status === 'error' && COURSES.message}
         {
           COURSES.status === 'ok' 
